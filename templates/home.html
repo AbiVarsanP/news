@@ -1,18 +1,100 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock title %}
 {% block content %}
+
 {% if user.is_authenticated %}
-Hi {{ user.username }}! You are {{ user.age }} years old.
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Log Out</button>
-</form>
-<br />
-<p><a class="btn btn-primary" href="{% url 'article_list' %}" role="button">
-        View all articles</a></p> <!-- new-->
+<!-- Welcome Hero Section -->
+<div class="hero-modern">
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome back, {{ user.username }}! <i class="fas fa-hand-wave"></i></h1>
+        <p class="hero-subtitle">
+            {% if user.age %}You are {{ user.age }} years old.{% endif %}
+            Discover and share amazing stories with our community.
+        </p>
+        <div class="hero-actions">
+            <a class="btn-modern btn-primary btn-lg" href="{% url 'article_list' %}" role="button">
+                <i class="fas fa-book-open"></i> View All Articles
+            </a>
+            <a class="btn-modern btn-secondary btn-lg" href="{% url 'article_new' %}" role="button">
+                <i class="fas fa-pencil-alt"></i> Write New Article
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Section -->
+<div class="section-modern">
+    <div class="article-grid">
+        <div class="article-card" style="text-align: center;">
+            <div class="article-card-body">
+                <h2 style="font-size: 3rem; margin: 0; color: var(--primary-color);"><i class="fas fa-infinity"></i></h2>
+                <h3>Unlimited Stories</h3>
+                <p>Create and share as many articles as you want</p>
+            </div>
+        </div>
+        <div class="article-card" style="text-align: center;">
+            <div class="article-card-body">
+                <h2 style="font-size: 3rem; margin: 0; color: var(--secondary-color);"><i class="fas fa-comments"></i></h2>
+                <h3>Active Community</h3>
+                <p>Engage with readers through comments</p>
+            </div>
+        </div>
+        <div class="article-card" style="text-align: center;">
+            <div class="article-card-body">
+                <h2 style="font-size: 3rem; margin: 0; color: var(--success-color);"><i class="fas fa-rocket"></i></h2>
+                <h3>Modern Platform</h3>
+                <p>Beautiful, fast, and responsive design</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% else %}
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> |
-<a href="{% url 'signup' %}">Sign Up</a>
+<!-- Guest Hero Section -->
+<div class="hero-modern">
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome to Newspaper <i class="fas fa-newspaper"></i></h1>
+        <p class="hero-subtitle">
+            Join our community to read, write, and share amazing articles with people around the world.
+        </p>
+        <div class="hero-actions">
+            <a class="btn-modern btn-primary btn-lg" href="{% url 'signup' %}" role="button">
+                <i class="fas fa-user-plus"></i> Sign Up Free
+            </a>
+            <a class="btn-modern btn-secondary btn-lg" href="{% url 'login' %}" role="button">
+                <i class="fas fa-sign-in-alt"></i> Log In
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="section-modern">
+    <h2 class="text-center" style="margin-bottom: var(--spacing-xl);">Why Join Newspaper?</h2>
+    <div class="article-grid">
+        <div class="article-card fade-in-up">
+            <div class="article-card-body" style="text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-md);"><i class="fas fa-pen-fancy"></i></h2>
+                <h3>Write & Publish</h3>
+                <p>Share your thoughts and stories with our growing community. Easy-to-use editor makes publishing a breeze.</p>
+            </div>
+        </div>
+        <div class="article-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="article-card-body" style="text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-md);"><i class="fas fa-comments"></i></h2>
+                <h3>Engage & Comment</h3>
+                <p>Join conversations, leave comments, and connect with other writers and readers.</p>
+            </div>
+        </div>
+        <div class="article-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="article-card-body" style="text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-md);"><i class="fas fa-mobile-alt"></i></h2>
+                <h3>Read Anywhere</h3>
+                <p>Responsive design means you can read and write on any device, anytime, anywhere.</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endif %}
+
 {% endblock content %}

@@ -1,0 +1,884 @@
+/* ============================================
+   Mobile Responsive Styles
+   Breakpoints: 320px, 480px, 768px, 1024px, 1920px
+   ============================================ */
+
+/* ============================================
+   Base Responsive Typography
+   ============================================ */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+/* Responsive Headings */
+h1 { font-size: 2.5rem; line-height: 1.2; }
+h2 { font-size: 2rem; line-height: 1.3; }
+h3 { font-size: 1.5rem; line-height: 1.4; }
+h4 { font-size: 1.25rem; line-height: 1.4; }
+h5 { font-size: 1.1rem; line-height: 1.5; }
+h6 { font-size: 1rem; line-height: 1.5; }
+
+@media (max-width: 1024px) {
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.375rem; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    h4 { font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.1rem; }
+    h4 { font-size: 1rem; }
+    h5 { font-size: 0.95rem; }
+}
+
+@media (max-width: 320px) {
+    h1 { font-size: 1.375rem; }
+    h2 { font-size: 1.125rem; }
+    h3 { font-size: 1rem; }
+}
+
+/* Body and paragraph text */
+body {
+    line-height: 1.6;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    p {
+        line-height: 1.7;
+    }
+}
+
+/* ============================================
+   Responsive Container
+   ============================================ */
+.container-modern {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 1024px) {
+    .container-modern {
+        max-width: 1000px;
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-modern {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-modern {
+        padding: 0 0.75rem;
+    }
+}
+
+/* ============================================
+   Navigation Bar - Mobile Responsive
+   ============================================ */
+.navbar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.navbar-brand-modern {
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Hamburger Menu Toggle */
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+
+.hamburger-toggle:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.hamburger-toggle span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link-modern {
+    position: relative;
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link-modern:hover,
+.nav-link-modern.active {
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .hamburger-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--neutral-200);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        max-height: 500px;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+        gap: 0;
+        border-bottom: 1px solid var(--neutral-100);
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links li a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        border-left: 3px solid transparent;
+        transition: all 0.2s;
+    }
+    
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background-color: var(--bg-secondary);
+        border-left-color: var(--primary-color);
+        color: var(--primary-color);
+    }
+    
+    .nav-actions {
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        gap: 0.75rem;
+        margin-left: 0;
+    }
+    
+    .nav-actions a,
+    .nav-actions button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand-modern {
+        font-size: 1.25rem;
+    }
+    
+    .navbar-wrapper {
+        padding: 0.75rem 0;
+        gap: 0.5rem;
+    }
+}
+
+/* ============================================
+   Hero Section - Mobile Responsive
+   ============================================ */
+.hero-modern {
+    padding: 6rem 1rem 4rem;
+}
+
+@media (max-width: 1024px) {
+    .hero-modern {
+        padding: 5rem 1rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-modern {
+        padding: 4rem 1rem 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-modern {
+        padding: 2.5rem 1rem 2rem;
+    }
+}
+
+.hero-title {
+    font-size: 3rem;
+}
+
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.hero-actions {
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .hero-actions {
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .hero-actions a,
+    .hero-actions button {
+        width: 100%;
+    }
+}
+
+/* ============================================
+   Article Grid - Mobile Responsive
+   ============================================ */
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .article-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* ============================================
+   Article Card - Mobile Responsive
+   ============================================ */
+.article-card {
+    padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .article-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-card {
+        padding: 1rem;
+    }
+}
+
+.article-card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+@media (max-width: 480px) {
+    .article-card img {
+        max-height: 200px;
+    }
+}
+
+/* ============================================
+   Forms - Mobile Responsive
+   ============================================ */
+form {
+    max-width: 100%;
+}
+
+.form-group-modern {
+    margin-bottom: 1.5rem;
+}
+
+.form-input-modern,
+.form-label-modern,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    width: 100%;
+}
+
+.form-input-modern {
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+}
+
+@media (max-width: 768px) {
+    .form-group-modern {
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-group-modern {
+        margin-bottom: 1rem;
+    }
+    
+    .form-input-modern {
+        padding: 0.65rem 0.875rem;
+    }
+}
+
+/* Form button responsive */
+.btn-modern {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    width: auto;
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .btn-modern {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ============================================
+   Cards - Mobile Responsive
+   ============================================ */
+.card-modern {
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .card-modern {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-modern {
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+}
+
+/* Keep desktop/tablet auth-card width from auth-styles.css; only constrain on very small screens below */
+
+@media (max-width: 480px) {
+    .auth-card {
+        max-width: 100%;
+    }
+}
+
+/* ============================================
+   Footer - Mobile Responsive
+   ============================================ */
+.footer-modern {
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-modern {
+        padding: 2rem 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-modern {
+        padding: 1.5rem 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.footer-column {
+    padding: 0;
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .footer-column h4 {
+        font-size: 1rem;
+    }
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0;
+}
+
+.footer-links a:hover {
+    color: var(--text-inverse);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        gap: 0.75rem;
+    }
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--text-inverse);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.social-link i {
+    font-size: 1.125rem;
+}
+
+/* ============================================
+   Sections - Mobile Responsive
+   ============================================ */
+.section-modern {
+    padding: 3rem 0;
+}
+
+@media (max-width: 1024px) {
+    .section-modern {
+        padding: 2.5rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-modern {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-modern {
+        padding: 1.5rem 0;
+    }
+}
+
+/* ============================================
+   Images - Responsive
+   ============================================ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive images with picture tag */
+picture img {
+    width: 100%;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.hide-mobile {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+.hide-tablet {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+.show-tablet {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .show-tablet {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   Touch & Interaction
+   ============================================ */
+/* Ensure touch targets are at least 44x44 pixels */
+a,
+button,
+input[type="button"],
+input[type="submit"],
+label {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Remove tap highlight on mobile */
+a,
+button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch-friendly cursor */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    button:hover,
+    a:hover {
+        background-color: inherit;
+    }
+}
+
+/* ============================================
+   Performance Optimizations
+   ============================================ */
+/* Reduce animations on mobile for better performance */
+@media (max-width: 768px) {
+    * {
+        animation-duration: 0.15s !important;
+        animation-delay: 0s !important;
+    }
+    
+    /* Keep critical animations */
+    .transition-fast,
+    .fade-in,
+    .fade-in-up,
+    .slide-in {
+        animation-duration: inherit !important;
+    }
+}
+
+/* Optimize for slow networks */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   Dropdown - Mobile Responsive
+   ============================================ */
+.dropdown-modern {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown-menu-modern {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.dropdown-toggle:hover ~ .dropdown-menu-modern,
+.dropdown-menu-modern:hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-item-modern {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-item-modern:hover {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .dropdown-menu-modern {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        box-shadow: none;
+        background: var(--bg-secondary);
+        border-radius: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+/* ============================================
+   Responsive Spacing
+   ============================================ */
+@media (max-width: 768px) {
+    /* Reduce vertical spacing on mobile */
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 0.375rem;
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    .navbar-modern,
+    .footer-modern,
+    .reading-progress,
+    .hamburger-toggle {
+        display: none !important;
+    }
+}
